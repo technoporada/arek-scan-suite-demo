@@ -34,6 +34,14 @@ python3 scan_demo.py --target 192.168.100.1   # własny router (wymaga potwierdz
 - Stawka skanowania obniżona (1000 pkt/s) — nie obciąża sieci.
 - Bez list haseł, bez brute-force, bez list krajowych.
 
+## Autor
+
+**Arek** — pseudonim **h5n1** (z czasów IRC, ~2001). Samouk, od zawsze
+zafascynowany tym, jak działają sieci. Skanery pisał na własne potrzeby
+(uczenie się), nigdy nie udostępniał wyników ani nie używał ich publicznie —
+ta demo-wersja pokazuje tę samą umiejętność, w granicach prawa i zdrowego
+rozsądku. Pisany z pomocą AI, pomysły i weryfikacja — moje.
+
 ## Licencja
 
 MIT — patrz `LICENSE`. Użyj zgodnie z prawem i sumieniem.
