@@ -16,15 +16,21 @@ import subprocess
 import sys
 from datetime import datetime
 
-AUTHORIZED_PREFIXES = ("127.0.0.", "::1", "192.168.", "10.", "172.16.", "172.17.", "172.18.", "172.19.", "172.2", "172.3", "100.64.")
 PORTS = "22,80,443,3389,8080"
 OUTPUT_DIR = "reports"
 
 
+import ipaddress
+
 def is_local(ip: str) -> bool:
-    if ip == "localhost":
+    if ip in ("localhost", "127.0.0.1", "::1"):
         return True
-    return any(ip.startswith(p) for p in AUTHORIZED_PREFIXES)
+    try:
+        addr = ipaddress.ip_address(ip)
+    except ValueError:
+        return False
+    return (addr.is_loopback or addr.is_private or addr.is_link_local
+            or str(addr).startswith("100.64."))
 
 
 def own_ip() -> str:
